@@ -1,6 +1,10 @@
 package demo.order.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import demo.order.domain.common.BaseEntity;
+import demo.order.domain.mapping.MemberAgree;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -20,12 +24,12 @@ public class Terms extends BaseEntity {
     @Column(nullable = false, unique = true)
     private Long id;
 
-    @Column(nullable = false, length = 100)
     private String title;
 
-    @Column(nullable = false)
-    private String content;
+    private String body;
 
-    @Column(nullable = false)
-    private boolean isRequired;
+    private Boolean isRequired;
+
+    @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
+    private List<MemberAgree> memberAgreeList = new ArrayList<>();
 }
