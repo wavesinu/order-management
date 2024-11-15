@@ -37,5 +37,6 @@ public class Store extends BaseEntity {
     @Column(nullable = false, length = 50)
     private String address;
 
+    @Column(columnDefinition = "INT DEFAULT 0")
     private Integer score;
 }

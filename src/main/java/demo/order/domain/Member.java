@@ -12,6 +12,7 @@ import demo.order.domain.mapping.MemberAgree;
 import demo.order.domain.mapping.MemberMission;
 import demo.order.domain.mapping.MemberPrefer;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -32,27 +33,33 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Member extends BaseEntity {
 
-@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 20)
     private String name;
 
+    @Column(nullable = false, length = 100)
     private String address;
 
+    @Column(nullable = false,length = 100)
     private String specAddress;
 
     @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(10)")
     private Gender gender;
 
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
 
     @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private MemberStatus status;
 
     private LocalDate inactiveDate;
 
+    @Column(nullable = false, length = 50, unique = true)
     private String email;
 
     private Integer point;

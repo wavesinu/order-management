@@ -28,7 +28,9 @@ public class Review extends BaseEntity {
     @JoinColumn(name = "store_id")
     private Store store;
 
+    @Column(nullable = false, length = 500)
     private String content;
 
+    @Column(nullable = false, columnDefinition = "INTEGER CHECK (rating >= 1 AND rating <= 5)")
     private Integer rating;
 }
