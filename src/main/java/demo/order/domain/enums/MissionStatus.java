@@ -1,4 +1,4 @@
-package demo.order.domain.mapping;
+package demo.order.domain.enums;
 
 public enum MissionStatus {
     COMPLETED, FAILED

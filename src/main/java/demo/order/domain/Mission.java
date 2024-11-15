@@ -23,11 +23,14 @@ public class Mission extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
+    @Column(nullable = false, columnDefinition = "INT DEFAULT 0")
     private Integer reward;
-    
+
+    @Column(nullable = false)
     private LocalDateTime deadline;
-    
+
+    @Column(nullable = false, length = 500)
     private String missionSpec;
 
     @ManyToOne(fetch = FetchType.LAZY)

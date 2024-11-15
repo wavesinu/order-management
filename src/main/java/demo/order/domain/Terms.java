@@ -24,10 +24,13 @@ public class Terms extends BaseEntity {
     @Column(nullable = false, unique = true)
     private Long id;
 
+    @Column(nullable = false, length = 100)
     private String title;
 
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
+    @Column(nullable = false)
     private Boolean isRequired;
 
     @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
